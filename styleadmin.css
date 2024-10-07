@@ -1,0 +1,77 @@
+body {
+    background-color: black; /* Fundo preto */
+    color: white; /* Texto branco */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    color: #e74c3c; /* Cor do título em vermelho */
+}
+
+.usuarios-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.usuario-card {
+    background-color: #4a235a; /* Cor roxa escura */
+    border-radius: 8px;
+    padding: 15px; /* Padding reduzido para compactar */
+    margin: 10px;
+    width: calc(30% - 20px); /* Largura dos cards */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Sombra mais suave */
+    transition: transform 0.2s; /* Transição ao passar o mouse */
+}
+
+.usuario-card:hover {
+    transform: translateY(-5px); /* Efeito ao passar o mouse */
+}
+
+.usuario-card h3 {
+    margin-top: 0;
+    color: #e67e22; /* Cor do nome do usuário em laranja */
+}
+
+.usuario-card p {
+    margin: 5px 0;
+}
+
+.usuario-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.button {
+    background-color: #8e44ad; /* Cor roxa para os botões */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px; /* Padding do botão */
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+    width: 100%; /* Largura do botão */
+    text-align: center;
+    transition: background-color 0.3s; /* Transição ao passar o mouse */
+}
+
+.button:hover {
+    background-color: #732d91; /* Cor ao passar o mouse */
+}
+
+.voltar-button {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+}

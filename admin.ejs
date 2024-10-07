@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Administração</title>
+    <link rel="stylesheet" href="/css/styleadmin.css"> <!-- Inclua seu CSS aqui -->
+</head>
+<body>
+    <div class="container">
+        <h1>Painel de Administração</h1>
+        
+        <h2>Usuários</h2>
+        <div class="usuarios-container">
+            <% usuarios.forEach(usuario => { %>
+                <div class="usuario-card">
+                    <h3><%= usuario.nome %></h3>
+                    <p><strong>Email:</strong> <%= usuario.email %></p>
+                    <h4>Planos Ativos:</h4>
+                    <ul>
+                        <% usuario.planos.forEach(plano => { %>
+                            <li>
+                                Nome: <%= plano.nome %>, Preço: R$ <%= plano.preco.toFixed(2) %>, 
+                                Renovação: <%= plano.proximaRenovacao.toLocaleDateString('pt-BR') %>, 
+                                ID: <%= plano._id %>
+                            </li>
+                        <% }); %>
+                    </ul>
+                    <form action="/admin/adicionar-plano" method="POST">
+                        <input type="hidden" name="userId" value="<%= usuario._id %>">
+                        <input type="text" name="nomePlano" placeholder="Nome do Plano" required>
+                        <input type="number" name="precoPlano" placeholder="Preço do Plano" required>
+                        <button type="submit" class="button">Adicionar Plano</button>
+                    </form>
+                    <form action="/admin/adicionar-dias" method="POST">
+                        <input type="hidden" name="userId" value="<%= usuario._id %>">
+                        <input type="text" name="planoId" placeholder="ID do Plano" required>
+                        <input type="number" name="dias" placeholder="Dias a adicionar" required>
+                        <button type="submit" class="button">Adicionar Dias</button>
+                    </form>
+                    <form action="/admin/tornar-admin" method="POST">
+                        <input type="hidden" name="userId" value="<%= usuario._id %>">
+                        <button type="submit" class="button">Tornar Admin</button>
+                    </form>
+                    <!-- Formulário para deletar usuário -->
+                    <form action="/admin/deletar-usuario" method="POST" onsubmit="return confirm('Tem certeza que deseja deletar este usuário?');">
+                        <input type="hidden" name="userId" value="<%= usuario._id %>">
+                        <button type="submit" class="button">Deletar Usuário</button>
+                    </form>
+                </div>
+            <% }); %>
+        </div>
+
+        <a href="/dashboard.html" class="voltar-button">Voltar para o Dashboard</a>
+    </div>
+</body>
+</html>

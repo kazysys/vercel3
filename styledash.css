@@ -1,0 +1,56 @@
+body {
+    background-color: #1a1a1a; /* Fundo escuro */
+    color: white; /* Texto branco */
+    font-family: Arial, sans-serif;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background-color: #2c2c2c; /* Cor do cartão */
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px; /* Largura do cartão */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-header h3 {
+    margin: 0;
+}
+
+.card-footer {
+    margin-top: 10px;
+}
+
+.btn {
+    background-color: #5e4b8a; /* Cor roxa do botão */
+    color: white; /* Texto branco */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px 0; /* Margem entre os botões */
+}
+
+.btn:hover {
+    background-color: #7f6bba; /* Cor do botão ao passar o mouse */
+}
+
+input[type="text"],
+input[type="number"] {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    width: calc(100% - 22px); /* Ajuste de largura */
+}

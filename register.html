@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylelogin.css">
+    <title>Registro</title>
+    <style>
+        .notification {
+            background-color: #6a0dad; 
+            color: white;
+            padding: 8px 12px; 
+            text-align: center;
+            position: fixed;
+            top: 20px;
+            right: 20px; 
+            z-index: 1000;
+            display: none; 
+            border-radius: 5px; 
+            font-size: 14px; 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /
+        }
+        .logo {
+    width: 100px; 
+    margin: 0 auto 20px; 
+    display: block; 
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5)); 
+}
+    </style>
+</head>
+<body>
+    <div class="notification" id="notification">Conta registrada com sucesso!</div>
+    <div class="container">
+        <div class="register-box">
+            <img src="/img/semfundo.png" alt="Logo" class="logo"> 
+            <h1>Registro</h1>
+            <form action="/register" method="POST">
+                <div class="textbox">
+                    <label>Nome</label>
+                    <input type="text" name="nome" required>
+                    
+                </div>
+                <div class="textbox">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                    
+                </div>
+                <div class="textbox">
+                    <label>Senha</label>
+                    <input type="password" name="senha" required>
+                    
+                </div>
+                <input type="submit" value="Registrar">
+                <p>Já tem uma conta? <a href="/login">Entre aqui</a></p>
+            </form>
+        </div>
+    </div>
+    <script>
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('success')) {
+            const notification = document.getElementById('notification');
+            notification.style.display = 'block'; 
+            setTimeout(() => {
+                notification.style.display = 'none'; 
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

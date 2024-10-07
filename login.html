@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylelogin.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <img src="/img/semfundo.png" alt="Logo" class="logo"> 
+            <h1>Login</h1>
+            <form action="/login" method="POST">
+                <div class="textbox">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="textbox">
+                    <label>Senha</label>
+                    <input type="password" name="senha" required>
+                </div>
+                <input type="submit" value="Entrar">
+                <p>Ainda não tem uma conta? <a href="/register">Registre-se</a></p>
+            </form>
+        </div>
+    </div>
+
+   
+    <div id="errorNotification" class="notification hidden">
+        Usuário ou senha incorretos.
+    </div>
+
+    <script>
+        
+        function showErrorNotification() {
+            const notification = document.getElementById('errorNotification');
+            notification.classList.remove('hidden');
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 3000); 
+        }
+
+       
+    </script>
+</body>
+</html>
